@@ -15,17 +15,17 @@ import './Ship.css';
 
 export const Ship: React.FC<IShip> = ({size, hits, isDestroyed, name}) => {
     const getShipImg = () => {
-        switch (size) {
-            case 5:
+        switch (name) {
+            case "aircraft":
                 return <img className="ship-img-file" src={Aircraft} alt="Aircraft" />;
-            case 4:
+            case "battleship":
                 return <img className="ship-img-file" src={Battleship} alt="Battleship" />;
-            case 3:
+            case "cruiser":
                 return <img className="ship-img-file" src={Cruiser} alt="Cruiser" />;
-            case 2:
-                return <img className="ship-img-file" src={Carrier} alt="Carrier" />;
-            default:
+            case "submarine":
                 return <img className="ship-img-file" src={Submarine} alt="Submarine" />;
+            default:
+                return <img className="ship-img-file" src={Carrier} alt="Carrier" />;
         }
     };
     const getShipHealth = () => {
