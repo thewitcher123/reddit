@@ -42,6 +42,17 @@ const {reducer, actions} = battleshipSlice;
 
 export const {restartGame, shootTheShip} = actions;
 
+export const scoreSelector = (state: RootState) => {
+    const {ships} = state.battleship;
+    const score = ships.filter(item => item.isDestroyed).length;
+    return {score, showRestart: score === ships.length};
+};
+
+export const shipListSelector = (state: RootState) => {
+    const {ships} = state.battleship;
+    return {ships};
+};
+
 export const boardSelector = (state: RootState) => {
     const {board, ships} = state.battleship;
     const score = ships.filter(item => item.isDestroyed).length;

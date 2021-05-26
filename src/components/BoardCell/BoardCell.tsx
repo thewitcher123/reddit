@@ -4,8 +4,9 @@ import {useDispatch} from "react-redux";
 import { getCellComponent } from './methods/componentHelper';
 import {shootTheShip} from '../../store/battleshipService';
 
-import './BoardCell.css';
 import { MISS_CHAR, EMPTY_CHAR } from '../../const/const';
+
+import './BoardCell.css';
 
 
 

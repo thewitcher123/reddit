@@ -7,15 +7,46 @@
     align-items: center;
 }
 
+@media screen and (max-width: 1060px) {
+    .game {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .game {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1060px) {
+    .info {
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .info {
+
+    }
+}
+
 .statistics {
     margin: 24px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.info {
-
 }
 
 .restart {
@@ -28,3 +59,5 @@
     flex-direction: column;
     padding: 16px;
 }
+
+

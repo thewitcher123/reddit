@@ -9,6 +9,22 @@
     font-weight: 700;
 }
 
+@media screen and (max-width: 1060px) {
+    .score {
+        padding: 32px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .score {
+        padding: 16px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+
 .score-1 {
     background-color: #eaa018;
 }

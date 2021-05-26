@@ -9,7 +9,7 @@ interface IScoreStats {
 export const Score: React.FC<IScoreStats> = ({score, position}) => {
     return (
         <div className={`score score-${position}`}>
-            <div className="score-counter">{score}</div>
+            <div className="score-counter">{`0${score}`}</div>
             <div className="score-player">{`Player ${position}`}</div>
         </div>
     );

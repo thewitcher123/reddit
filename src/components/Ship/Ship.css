@@ -31,3 +31,16 @@
     align-items: center;
     display: flex;
 }
+
+@media screen and (max-width: 1060px) {
+    .ship-img-file {
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ship-img-file {
+        max-width: 120px;
+        max-height: 120px;
+    }
+}

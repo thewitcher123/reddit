@@ -1,28 +1,46 @@
 import React from 'react';
+import {compose} from 'redux';
+import {connect, ConnectedProps, useDispatch} from "react-redux";
 
-import Board from '../Board/Board';
+import BoardContainer from '../Board/Board';
+import ShipListContainer from '../ShipList/ShipList';
+
 import { Score } from '../Score/Score';
-import { ShipList } from '../ShipList/ShipList';
+
+import {scoreSelector, restartGame} from '../../store/battleshipService';
+import {RootState} from '../../store/types';
 
 import './Game.css';
 
 
-export const Game = () => {
+const Game: React.FC<GameReduxProps> = ({showRestart, score}) => {
+    const dispatch = useDispatch();
     return (
         <div>
-            <div className="restart">
-                <button>Restart game</button>
-            </div>
+            {showRestart && (
+                <div className="restart">
+                    <h1>Well done, Admiral!</h1>
+                    <button onClick={() => dispatch(restartGame())}>Play again</button>
+                </div>
+            )}
             <div className="game">
                 <div className="info">
                     <div className="statistics">
-                        <Score score={5} position={1}/>
+                        <Score score={score} position={1}/>
                         <Score score={0} position={2}/>
                     </div>
-                    <ShipList/>
+                    <ShipListContainer/>
                 </div>
-                <Board/>
+                <BoardContainer/>
             </div>
         </div>
     );
 };
+
+const mapStateToProps = (state: RootState) => {
+    return scoreSelector(state);
+};
+
+const connector = connect(mapStateToProps);
+type GameReduxProps = ConnectedProps<typeof connector>;
+export default compose(connector)(Game);
