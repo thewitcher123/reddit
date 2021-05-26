@@ -8,9 +8,23 @@
 }
 
 .statistics {
-
+    margin: 24px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .info {
 
+}
+
+.restart {
+    background-color: bisque;
+    margin: 16px;
+    color: darkgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 16px;
 }

@@ -1,0 +1,33 @@
+.ship {
+    display: flex;
+}
+
+.ship-name {
+    text-transform: capitalize;
+    font-size: 32px;
+}
+
+.ship-health {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ship-health-point {
+    max-width: 32px;
+}
+
+.ship-img {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.ship-img-file {
+    max-width: 240px;
+    max-height: 240px;
+    margin: 16px auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

@@ -1,0 +1,21 @@
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    padding: 40px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.score-1 {
+    background-color: #eaa018;
+}
+.score-2 {
+    background-color: #38b17f;
+}
+
+.score-player {
+    border-top: 1px solid black;
+}

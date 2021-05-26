@@ -1,7 +1,13 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {IShip, randomSetup} from "../components/Board/methods/helper";
 
-const initialState = {
+interface IBattleshipSlice {
+    board: string[][];
+    ships: IShip[];
+}
 
+const initialState: IBattleshipSlice = {
+    ...randomSetup()
 };
 
 const battleshipSlice = createSlice({
@@ -9,12 +15,14 @@ const battleshipSlice = createSlice({
     initialState,
     reducers: {
         restartGame: () => {
-            return initialState;
+            return randomSetup();
         },
     }
 });
 
-const {reducer} = battleshipSlice;
+const {reducer, actions} = battleshipSlice;
+
+export const {restartGame} = actions;
 
 
 export default reducer;
