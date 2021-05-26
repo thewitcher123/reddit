@@ -1,0 +1,16 @@
+.game {
+    display: flex;
+    margin: 16px auto;
+    justify-content: space-around;
+    height: 100%;
+    max-width: 1300px;
+    align-items: center;
+}
+
+.statistics {
+
+}
+
+.info {
+
+}

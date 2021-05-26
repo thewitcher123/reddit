@@ -1,0 +1,15 @@
+.cell {
+    height: calc((100vw - 16px) / 10);
+    width: calc((100vw - 16px) / 10);
+    max-height: 64px;
+    max-width: 64px;
+    border: 1px solid #c9c9c9;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:hover {
+    cursor: crosshair;
+}
