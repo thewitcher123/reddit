@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Board } from '../Board/Board';
+import Board from '../Board/Board';
 import { Score } from '../Score/Score';
 import { ShipList } from '../ShipList/ShipList';
 

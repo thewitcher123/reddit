@@ -1,6 +1,5 @@
-export const EMPTY_CHAR = "";
-export const MISS_CHAR = "M";
-export const HIT_CHAR = "H";
+import {EMPTY_CHAR} from '../../../const/const';
+
 
 export interface IShip {
     name: string;
@@ -64,7 +63,20 @@ const trySetShipHorizontally = ({board, ship, row, column}: IShipDirectionProps)
 };
 
 const trySetShipVertically = ({board, ship, row, column}: IShipDirectionProps) => {
-    // todo
+    const boardVerticalPart = [];
+    for (let i = row; i < row + ship.size; i++) {
+        boardVerticalPart.push(board[i][column]);
+    }
+    if (boardVerticalPart.filter(item => item === EMPTY_CHAR).length === ship.size) {
+        for (let i = row; i < row + ship.size; i++) {
+            board[i][column] = createShipTag(ship);
+        }
+        return;
+    }
+    else {
+        const {randomRow, randomColumn} = getShipRandomPosition({shipSize: ship.size, isHorizontal: false});
+        trySetShipVertically({board, ship, row: randomRow, column: randomColumn});
+    }
 };
 
 const createShipTag = ({name, size}: IShip) => size + name[0]; // to differ between similar sizes
@@ -72,8 +84,7 @@ const createShipTag = ({name, size}: IShip) => size + name[0]; // to differ betw
 export const randomSetup = () => {
     const board = prepareBoard(10);
     startShips.forEach((ship) => {
-        //const direction = Math.floor(Math.random() * 10);
-        const direction = 4;
+        const direction = Math.floor(Math.random() * 10);
         const shipSize = ship.size;
         if (direction < 5) {
             const {randomRow, randomColumn} = getShipRandomPosition({shipSize, isHorizontal: true});
