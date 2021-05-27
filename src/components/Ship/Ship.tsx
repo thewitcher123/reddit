@@ -34,7 +34,8 @@ export const Ship: React.FC<IShip> = ({size, hits, isDestroyed, name}) => {
             <img
                 key={index + 'shipHealth'}
                 className="ship-health-point"
-                src={isDestroyed || hits > index ? HitSmall : MissSmall}
+                //src={isDestroyed || hits > index ? HitSmall : MissSmall}
+                src={isDestroyed ? HitSmall : MissSmall}
                 alt={index + 'shipHealth'}
             />
         ))

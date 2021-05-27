@@ -11,6 +11,7 @@ export const getCellComponent = (value: string) => {
         case HIT_CHAR:
             return <img className="cell-img" src={Hit} alt="Hit" />;
         default:
-            return "";
+            //return "";
+            return value;
     }
 };

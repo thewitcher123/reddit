@@ -1,7 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {IShip, randomSetup} from "../components/Board/methods/helper";
+import {IShip, randomSetup, registerTheHit} from "../components/Board/methods/helper";
 import {IBoardCell} from '../components/BoardCell/BoardCell';
-import {HIT_CHAR, MISS_CHAR} from '../const/const';
 import { RootState } from './types';
 
 interface IBattleshipSlice {
@@ -18,19 +17,9 @@ const battleshipSlice = createSlice({
     initialState,
     reducers: {
         shootTheShip: (state, action: PayloadAction<IBoardCell>) => {
-            const {row, column, value} = action.payload;
-            if (value === MISS_CHAR) {
-                state.board[row][column] = value;
-            } else {
-                const updatedShips = state.ships.map(item => {
-                    if (item.size === parseFloat(value[0]) && item.name[0] === value[1]) {
-                        return {...item, hits: item.hits + 1, isDestroyed: item.hits + 1 === item.size};
-                    }
-                    return item;
-                });
-                state.board[row][column] = HIT_CHAR;
-                state.ships = updatedShips;
-            }
+            const {board, ships} = registerTheHit({...action.payload, ...state});
+            state.board = board;
+            state.ships = ships;
         },
         restartGame: () => {
             return randomSetup();
